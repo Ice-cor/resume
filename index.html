@@ -16,7 +16,8 @@
     <div class="topNavbar ">
         <div class="topNavbar-inner clearfix">
             <a class="logo" href="#" alt="logo" style="float: left; ">
-                <span class="rs">RS</span><span class="card">card</span>
+                <span class="rs">RS</span>
+                <span class="card">card</span>
             </a>
             <nav>
                 <ul class="clearfix">
@@ -50,98 +51,152 @@
     <div class="content">
         <div class="container">
             <main>
-                <div class="card clearfix">
-                    <div class="picture">
-                        <div class="imgWrap">
-                            <img src="./images/me.jpg" alt="头像">
-                        </div>
+                <div class="card-wrap">
+                    <div class="card clearfix">
+                        <div class="picture">
+                            <div class="imgWrap">
+                                <img src="./images/me.jpg" alt="头像">
+                            </div>
 
-                    </div>
-                    <div class="text">
-                        <div class="welcome-wrap">
-                            <span class="welcome">HELLO</span>
                         </div>
+                        <div class="text">
+                            <div class="welcome-wrap">
+                                <span class="welcome">HELLO</span>
+                            </div>
 
-                        <h1 class="myName">钟文钦</h1>
-                        <p class="profile-position">前端开发工程师</p>
-                        <hr>
-                        <ul class="myInfo">
-                            <li>
-                                <strong>年龄</strong>
-                                <span>26</span>
-                            </li>
-                            <li>
-                                <strong>所在城市</strong>
-                                <span>深圳</span>
-                            </li>
-                            <li>
-                                <strong>邮箱</strong>
-                                <span>zhong0102@qq.com</span>
-                            </li>
-                            <li>
-                                <strong>手机</strong>
-                                <span>18826495338</span>
-                            </li>
-                        </ul>
+                            <h1 class="myName">钟文钦</h1>
+                            <p class="profile-position">前端开发工程师</p>
+                            <hr>
+                            <ul class="myInfo">
+                                <li>
+                                    <strong>年龄</strong>
+                                    <span>26</span>
+                                </li>
+                                <li>
+                                    <strong>所在城市</strong>
+                                    <span>深圳</span>
+                                </li>
+                                <li>
+                                    <strong>邮箱</strong>
+                                    <span>zhong0102@qq.com</span>
+                                </li>
+                                <li>
+                                    <strong>手机</strong>
+                                    <span>18826495338</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                    <footer class="media">
+                        <!-- <a href="#">
+                                    <svg class="icon" aria-hidden="true" style="color: white">
+                                        <use xlink:href="#icon-CN_jianshu"></use>
+                                    </svg>
+                                </a> -->
+
+                        <a href="#">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-github"></use>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-weixin"></use>
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-blogger"></use>
+                            </svg>
+                        </a>
+
+                    </footer>
                 </div>
-                <footer class="media">
-                    <!-- <a href="#">
-                        <svg class="icon" aria-hidden="true" style="color: white">
-                            <use xlink:href="#icon-CN_jianshu"></use>
-                        </svg>
-                    </a> -->
 
-                    <a href="#">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-github"></use>
-                        </svg>
-                    </a>
-                    <a href="#">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-weixin"></use>
-                        </svg>
-                    </a>
-                    <a href="#">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-blogger"></use>
-                        </svg>
-                    </a>
-
-                </footer>
-                <a href="" class="button" href="#">下载PDF简历</a>
+                <div class="downBtn-wrap">
+                    <a href="" class="downBtn" href="#">下载 PDF 简历</a>
+                </div>
+                <p class="selfIntroduction">我是钟文钦，前端工程师
+                    <br>即使是蝼蚁，也要学会站在巨人的肩膀上眺望远方</p>
             </main>
-            <p>
-                钟文钦，前端工程师
-                <br> 技能:html5、css3、javascript、vue
-            </p>
-            <section>
-                <h2>技能</h2>
-                <ol>
-                    <li>HTML 5 &amp; CSS 3</li>
-                    <li>JavaScript</li>
-                    <li>jQuery</li>
-                    <li>Vue</li>
-                    <li>React</li>
-                    <li>HTTP</li>
+
+            <section class="skill">
+                <h2 class="skillTitle">技能</h2>
+                <ol class="skillBar clearfix">
+                    <li>
+                        <p>HTML 5 &amp; CSS 3</p>
+                        <div class="barLine">
+                            <span class="barFill" style="width: 90%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>JavaScript</p>
+                        <div class="barLine">
+                            <span class="barFill" style="width: 80%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>jQuery</p>
+                        <div class="barLine">
+                            <span class="barFill" style="width: 60%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Vue</p>
+                        <div class="barLine">
+                            <span class="barFill" style="width: 70%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>React</p>
+                        <div class="barLine">
+                            <span class="barFill" style="width: 60%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Http</p>
+                        <div class="barLine">
+                            <span class="barFill" style="width: 50%;"></span>
+                        </div>
+                    </li>
                 </ol>
             </section>
-            <section>
+            <section class="protfolio">
                 <h2>作品集</h2>
                 <nav>
-                    <ol>
-                        <li>所有</li>
-                        <li>框架</li>
-                        <li>原生JS&amp;CSS</li>
+                    <ol id="protfolioItems">
+                        <li id="protfolio1">所有</li>
+                        <li id="protfolio2">框架</li>
+                        <li id="protfolio3">原生JS&amp;CSS</li>
                     </ol>
+                    <div class="filter-bar" id="line">
+                        <span class="filter-bar-line change"></span>
+                    </div>
                 </nav>
-
+                <script>
+                    protfolio1.onclick = function () {
+                        line.className = 'filter-bar filter-bar1'
+                    }
+                    protfolio2.onclick = function () {
+                        line.className = 'filter-bar filter-bar2'
+                    }
+                    protfolio3.onclick = function () {
+                        line.className = 'filter-bar filter-bar3'
+                    }
+                </script>
                 <div class="jobs">
-                    <div class="big"></div>
-                    <div class="small"></div>
-                    <div class="small"></div>
+                    <div class="big">
+                        <img src="./images/big.jpg" alt="大图1">
+                    </div>
+                    <div class="smaller clearfix">
+                        <div class="small">
+                            <img src="./images/small1.jpg" alt="小图1">
+                        </div>
+                        <div class="small">
+                            <img src="./images/small2.jpg" alt="小图2">
+                        </div>
+                    </div>
                 </div>
-
             </section>
         </div>
 
