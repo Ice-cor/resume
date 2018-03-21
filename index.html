@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="zh-Hans">
 
 <head>
     <meta charset="UTF-8">
@@ -10,9 +10,15 @@
     <script src="//at.alicdn.com/t/font_582325_9m7a8ck85154s4i.js"></script>
 </head>
 <style type="text/css">
+
 </style>
 
 <body>
+    <div class="loadingWrap active" id="loadingWrap">
+        <div class="loading">
+
+        </div>
+    </div>
     <div class="topNavbar ">
         <div class="topNavbar-inner clearfix">
             <a class="logo" href="#" alt="logo" style="float: left; ">
@@ -201,7 +207,10 @@
         </div>
 
     </div>
-
+<script>
+    var loadingWrap = document.getElementById('loadingWrap')
+    loadingWrap.classList.add('active')
+</script>
 
 </body>
 

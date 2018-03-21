@@ -340,3 +340,56 @@ body{
 .small>img{
     display: block;
 }
+
+.loadingWrap{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.active {
+    display: none;
+}
+.loading{
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.loading::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    background: #e8676b;
+    border-radius: 50%;
+    animation: load 1.5s linear infinite;
+}
+.loading::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    background: #e8676b;
+    border-radius: 50%;
+    animation: load 1.5s 0.75s linear infinite;
+}
+@keyframes load {
+    from {transform: scale(0);opacity: 1;  }
+    to {transform: scale(1);opacity: 0;}
+}
