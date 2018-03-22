@@ -14,7 +14,7 @@
 </style>
 
 <body>
-    <div class="loadingWrap active" id="loadingWrap">
+    <div class="loadingWrap" id="loadingWrap">
         <div class="loading">
 
         </div>
@@ -209,7 +209,10 @@
     </div>
 <script>
     var loadingWrap = document.getElementById('loadingWrap')
-    loadingWrap.classList.add('active')
+    setTimeout(function(){
+        loadingWrap.classList.add('active')
+    },2000)
+    
 </script>
 
 </body>
