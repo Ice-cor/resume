@@ -34,7 +34,7 @@
                             <a href="#skill">技能</a>
                         </li>
                         <li>
-                            <a href="#protfolio" >作品</a>
+                            <a href="#protfolio">作品</a>
                             <ul class="subMenu">
                                 <li>作品1</li>
                                 <li>作品2</li>
@@ -42,7 +42,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" >博客</a>
+                            <a href="#">博客</a>
                             <ul class="subMenu">
                                 <li>博客1</li>
                                 <li>博客2</li>
@@ -67,7 +67,7 @@
     </div>
     <div class="content">
         <div class="container">
-            <main id="about">
+            <main id="about" data-x>
                 <div class="card-wrap">
                     <div class="card clearfix">
                         <div class="picture">
@@ -137,7 +137,7 @@
                     <br>即使是蝼蚁，也要学会站在巨人的肩膀上眺望远方</p>
             </main>
 
-            <section id="skill" class="skill">
+            <section id="skill" class="skill" data-x>
                 <h2 class="skillTitle">技能</h2>
                 <ol class="skillBar clearfix">
                     <li>
@@ -178,7 +178,7 @@
                     </li>
                 </ol>
             </section>
-            <section id="protfolio" class="protfolio">
+            <section id="protfolio" class="protfolio" data-x>
                 <h2>作品集</h2>
                 <nav>
                     <ol id="protfolioItems">
@@ -201,6 +201,32 @@
                         line.className = 'filter-bar filter-bar3'
                     }
                 </script>
+                <div class="jobs clearfix">
+                    <div class="big clearfix">
+                        <img src="./images/big.jpg" alt="大图1">
+                    </div>
+                    <div class="smaller clearfix">
+                        <div class="small">
+                            <img src="./images/small1.jpg" alt="小图1">
+                        </div>
+                        <div class="small">
+                            <img src="./images/small2.jpg" alt="小图2">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="protfolio22" class="protfolio">
+                <h2>作品集</h2>
+                <nav>
+                    <ol id="protfolioItems">
+                        <li id="protfolio1">所有</li>
+                        <li id="protfolio2">框架</li>
+                        <li id="protfolio3">原生JS&amp;CSS</li>
+                    </ol>
+                    <div class="filter-bar" id="line">
+                        <span class="filter-bar-line change"></span>
+                    </div>
+                </nav>
                 <div class="jobs">
                     <div class="big">
                         <img src="./images/big.jpg" alt="大图1">
@@ -218,65 +244,128 @@
         </div>
 
     </div>
-    <script>
-        var loadingWrap = document.getElementById('loadingWrap')
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
+<script>
+    loading()
+
+    slideMenu()
+
+
+
+    /************工具函数**************/
+
+    function loading() {
+        let loadingWrap = document.getElementById('loadingWrap')
         setTimeout(function () {
             loadingWrap.classList.add('active')
-        }, 2000)
+        }, 100)
+
+    } //页面加载效果
+
+
+    function slideMenu() {
+        let liTags = document.querySelectorAll('.menuWrap>li')
+        let aTags = document.querySelectorAll('.menuWrap>li>a')
+
+        // Setup the animation loop.
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+        }
+        requestAnimationFrame(animate);
+
+
+        for (let i = 0; i < aTags.length; i++) {
+            aTags[i].onclick = function (e) {
+                e.preventDefault()
+                let a = e.currentTarget
+                let id = a.getAttribute('href') //获取#x
+                let pageTag = document.querySelector(id)
+                let top = pageTag.offsetTop
+
+                let currentTop = window.scrollY //当前页面位置
+                let distance = top - currentTop //路程
+                let coords = {
+                    y: currentTop
+                } //开始位置
+                // console.log(currentTop,distance)
+                let tween = new TWEEN.Tween(coords)
+                    .to({
+                        y: top + 50
+                    }, 500) //结束位置
+                    .easing(TWEEN.Easing.Quadratic.Out)
+                    .onUpdate(function () {
+                        window.scrollTo(0, coords.y)
+                    })
+                    .start();
+            }
+        } //页面缓动效果
+
+
+
+        for (let i = 0; i < liTags.length; i++) {
+            liTags[i].addEventListener('mouseenter', onmouseenter)
+            liTags[i].addEventListener('mouseleave', onmouseleave)
+
+        } //hover显示效果
+
+        let pageTags = document.querySelectorAll('[data-x]')
+        for (let i = 0; i < pageTags.length; i++) {
+            pageTags[i].classList.add('offset')
+        } //添加offset类
+
+        
+        // findClosest()
 
         window.onscroll = function (e) {
-            var topNavbar = document.getElementById('topNavbar')
+            let topNavbar = document.getElementById('topNavbar')
             if (scrollY > 1) {
-
                 topNavbar.classList.add('navActive')
             } else {
                 topNavbar.classList.remove('navActive')
             }
+            findClosest()
+        } //nav浮现效果及页面上浮效果
+
+        function findClosest() {
+            let pageTags = document.querySelectorAll('[data-x]')
+            let minOne = 0 //设置当前最小值匹配滚动区域  
+
+            for (let i = 0; i < pageTags.length; i++) {
+                let top = pageTags[i].offsetTop
+                let height = pageTags[i].offsetTop + pageTags[i].clientHeight
+
+                if (window.scrollY > pageTags[i].offsetTop - 100 && window.scrollY < pageTags[i].offsetTop +
+                    pageTags[i].clientHeight - 100) { //当滚动距离元素头部且小于元素尾部的时候，就视为在这个元素区域里面
+                    minOne = i
+                }
+            }
+            pageTags[minOne].classList.remove('offset')
+
+            let id = pageTags[minOne].id
+
+            let a = document.querySelector('a[href="#' + id + '"]')
+            let li = a.parentNode
+            let liAll = li.parentNode.children
+            for (let i = 0; i < liAll.length; i++) {
+                liAll[i].classList.remove('highLight')
+            }
+            li.classList.add('highLight')
+
+           
+        } //找最近的元素
+
+        function onmouseenter(li) {
+            li.currentTarget.classList.add('active')
         }
-        slideMenu()
 
-        let aTags = document.querySelectorAll('.menuWrap>li>a')
-        console.log(aTags)
-        for(let i = 0; i < aTags.length; i++){
-            aTags[i].onclick = function(e){
-                e.preventDefault()
-                let a = e.currentTarget
-                let id = a.getAttribute('href') //获取#x
-                let aaa = document.querySelectorAll(id)[0]
-              
-                let y = aaa.offsetTop
-                  console.log(y)
-                window.scrollTo(0,y)
-            }
+        function onmouseleave(li) {
+            li.currentTarget.classList.remove('active')
         }
-        /*工具函数*/ 
-
-        function slideMenu() {
-            let liTags = document.querySelectorAll('.menuWrap>li')
-
-            function findChild(e) {
-                let li = e.currentTarget
-                let child = li.getElementsByTagName('ul')[0]
-                
-                return child
-            }
-
-            function onmouseenter(li) {
-                li.currentTarget.classList.add('active')
-            }
-
-            function onmouseleave(li) {
-                li.currentTarget.classList.remove('active')
-            }
-
-            for (let i = 0; i < liTags.length; i++) {
-                liTags[i].addEventListener('mouseenter', onmouseenter)
-                liTags[i].addEventListener('mouseleave', onmouseleave)
-
-            }
-        }
-    </script>
-
-</body>
+    }
+</script>
 
 </html>
