@@ -261,7 +261,7 @@
         let loadingWrap = document.getElementById('loadingWrap')
         setTimeout(function () {
             loadingWrap.classList.add('active')
-        }, 100)
+        }, 1000)
 
     } //页面加载效果
 
@@ -315,8 +315,10 @@
         let pageTags = document.querySelectorAll('[data-x]')
         for (let i = 0; i < pageTags.length; i++) {
             pageTags[i].classList.add('offset')
+            
         } //添加offset类
-
+        setTimeout(function(){pageTags[0].classList.remove('offset')},1000)
+        //第一个page加载后自动变化
         
         // findClosest()
 
@@ -338,8 +340,8 @@
                 let top = pageTags[i].offsetTop
                 let height = pageTags[i].offsetTop + pageTags[i].clientHeight
 
-                if (window.scrollY > pageTags[i].offsetTop - 100 && window.scrollY < pageTags[i].offsetTop +
-                    pageTags[i].clientHeight - 100) { //当滚动距离元素头部且小于元素尾部的时候，就视为在这个元素区域里面
+                if (window.scrollY > pageTags[i].offsetTop - 200 && window.scrollY < pageTags[i].offsetTop +
+                    pageTags[i].clientHeight - 200) { //当滚动距离元素头部且小于元素尾部的时候，就视为在这个元素区域里面
                     minOne = i
                 }
             }
