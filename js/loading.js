@@ -6,7 +6,7 @@
         timeId: null,
         init: function (view) {
             this.view = view
-            this.addClass()
+            // this.addClass()
             this.bindEvents()
             
         },

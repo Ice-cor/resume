@@ -162,3 +162,9 @@ div.active { display: none; }
     padding: 8px 5px;
     border-radius: 5px;
 }
+
+
+.swiper-container {
+    width: 600px;
+    height: 400px;
+}
