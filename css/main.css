@@ -166,5 +166,9 @@ div.active { display: none; }
 
 .swiper-container {
     width: 600px;
-    height: 400px;
+    height: 450px;
+}
+.swiper-container img{
+    display: block;
+    width: 100%;
 }

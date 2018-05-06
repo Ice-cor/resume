@@ -1,4 +1,4 @@
-! function () {
+!function () {
     let view = document.querySelector('#messages')
 
     let model = {
